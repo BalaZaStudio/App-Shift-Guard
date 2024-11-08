@@ -1,0 +1,549 @@
+/* Agregar scroll vertical invisible a todo el body */
+body {
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Estilos para el icono de reloj */
+#clockIcon {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Estilos para la ventana emergente */
+.clock-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Estilos para el contenido de la ventana emergente */
+.clock-content {
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.historial-row {
+    /* Estilos para las filas de la tabla */
+    background-color: #000000;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#historialContent {
+    max-height: 300px;
+    /* Altura máxima para mostrar en una página */
+    overflow-y: auto;
+    /* Agregar desplazamiento vertical si es necesario */
+    overflow-y: scroll;
+    /* Habilita la barra de desplazamiento vertical */
+}
+
+#pagination {
+
+    text-align: center;
+    margin-top: 10px;
+}
+
+#pagination button:disabled {
+    opacity: 0.5;
+    /* Botones de navegación deshabilitados con opacidad reducida */
+}
+
+
+
+.settings-container {
+    position: fixed;
+    bottom: 20px;
+    /* Ajusta la posición vertical según sea necesario */
+    right: 20px;
+    /* Ajusta la posición horizontal según sea necesario */
+    cursor: pointer;
+    z-index: 999;
+
+}
+
+/* Estilos para los días laborables (de lunes a viernes) */
+.day.laborable {
+    background-color: #f0f0f0;
+    /* Color de fondo para días laborables */
+    color: #333;
+    /* Color del texto para días laborables */
+    font-weight: bold;
+    /* Texto en negrita para días laborables */
+}
+
+/* Estilos para los fines de semana (sábado y domingo) */
+.day.fin-de-semana {
+    background-color: #ddd;
+    /* Color de fondo para fines de semana */
+    color: #888;
+    /* Color del texto para fines de semana */
+    font-weight: normal;
+    /* Texto no en negrita para fines de semana */
+}
+
+/* Agrega estilos para el icono de cambio de modo */
+.modo-icon {
+    position: absolute;
+    top: 10px;
+    /* Ajusta la posición vertical según tu preferencia */
+    right: 10px;
+    /* Ajusta la posición horizontal según tu preferencia */
+    cursor: pointer;
+}
+
+/* Agrega estilos para el modo oscuro */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+    /* ... (otros estilos de modo oscuro) ... */
+}
+
+
+/* Agregar márgenes en la ventana de "Guardias" */
+.window#guardiasContainer {
+    margin: 20px;
+    /* Margen alrededor de toda la ventana */
+}
+
+/* Espaciado entre etiquetas <label> y campos de entrada <input> */
+.form label {
+    margin-bottom: 10px;
+    /* Margen inferior para etiquetas */
+}
+
+.form input {
+    margin-bottom: 20px;
+    /* Margen inferior para campos de entrada */
+}
+
+/* Espaciado entre los campos de entrada y el botón */
+.form button {
+    margin-top: 10px;
+    /* Margen superior para el botón */
+}
+
+/* Estilos generales para pantallas grandes (por defecto) */
+body {
+    font-size: 16px;
+}
+
+/* Estilos para la ventana principal */
+#mainContainer {
+    animation-name: fadeIn;
+    align-items: center;
+}
+
+/* Estilos para la ventana de Cuadrante */
+#calendarContainer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: fadeIn;
+}
+
+/* Estilos para la ventana de Guardias */
+#guardiasContainer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: fadeIn;
+    padding: 20px;
+    width: 90%; /* Ancho ajustado al 90% de la pantalla */
+    max-height: 70vh; /* Altura máxima ajustada para que no ocupe toda la pantalla */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es demasiado grande */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    border-radius: 8px; /* Bordes redondeados para un aspecto más amigable */
+}
+/* Estilo para ocultar la barra de desplazamiento */
+#guardiasContainer::-webkit-scrollbar {
+    width: 0; /* Oculta la barra de desplazamiento */
+    background: transparent; /* Fondo transparente */
+}
+
+/* Estilos para la ventana de Historial */
+#historialContent {
+    max-height: 300px; /* Altura máxima para mostrar en una página */
+    overflow-y: hidden; /* Oculta la barra de desplazamiento */
+    position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+}
+
+/* Pseudo-elemento para mostrar desplazamiento */
+#historialContent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px; /* Ancho del área de desplazamiento */
+    background: rgba(255, 255, 255, 0); /* Fondo transparente */
+    cursor: pointer; /* Cambia el cursor para indicar desplazamiento */
+}
+
+
+#guardiasButton {
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;    background-image: url(fondo.png);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    animation: fadeIn 5s infinite alternate, moveBackground 10s infinite ease-in-out;
+}
+
+/* Contenedor principal con fondo opaco */
+.window {
+   
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para hacer la imagen más clara */
+@keyframes fadeIn {
+    0% {
+        filter: brightness(0.7); /* Brillo inicial */
+    }
+    100% {
+        filter: brightness(1); /* Brillo final */
+    }
+}
+
+/* Animación para mover la imagen con efecto de rebote */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%; /* Posición inicial */
+    }
+    50% {
+        background-position: 100% 100%; /* Llega a la esquina opuesta */
+    }
+    100% {
+        background-position: 0% 0%; /* Regresa a la posición inicial */
+    }
+}
+
+
+
+
+.animation-container {
+    text-align: center;
+    animation: fadeOut 2s ease-in-out;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #333;
+}
+
+.buttons {
+    display: flex; /* Usar flexbox para alinear en línea */
+    margin-top: 20px; /* Espacio superior */
+    padding-block: 60px; /* Espaciado superior e inferior */
+    align-items: center; /* Centrar verticalmente los elementos */
+    gap: 20px; /* Espacio entre los botones */
+    justify-content: center; /* Centrar los botones en la línea */
+}
+
+
+/* Espaciado entre los botones en vista normal */
+button {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: flex;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-size: 120% auto;
+    background-image: linear-gradient(315deg, #833ab4 0%, #fd1d1d 50%, #fcb045);
+    margin-right: 10px; /* Margen derecho en vista normal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar efecto 3D */
+    transform: translateY(0); /* Posición inicial */
+}
+
+button:hover {
+    background-image: linear-gradient(315deg, #fcb045 0%, #fd1d1d 50%, #833ab4); /* Cambio de color al hacer hover */
+    transform: translateY(-3px); /* Elevar el botón */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Aumentar la sombra al hacer hover */
+}
+
+button:active {
+    transform: translateY(1px); /* Efecto de presionar el botón */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Reducir sombra al presionar */
+}
+
+button:last-child {
+    margin-right: 0; /* Sin margen derecho en el último botón */
+}
+
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+
+    /* Color del texto (rojo) */
+    text-shadow: 10px black;
+
+}
+
+.calendar-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Estilos para el calendario */
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+}
+
+.day {
+    width: 8.28%;
+    /* Ancho fijo para cada día */
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+    /* Margen derecho para separar los días */
+}
+
+.day.guardia {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+
+
+/* Nuevos estilos para el calendario */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+    background-color: #0056b3;
+}
+
+.calendar-header h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    /* Color del texto (rojo) */
+    text-shadow:
+        -1px -2px 0 #000000,
+        /* Sombra superior-izquierda (color y posición) */
+        2px -2px 0 #000000,
+        /* Sombra superior-derecha (color y posición) */
+        -2px 2px 0 #000000,
+        /* Sombra inferior-izquierda (color y posición) */
+        2px 2px 0 #000000;
+    /* Sombra inferior-derecha (color y posición) */
+
+}
+
+/* Define los colores claro y oscuro */
+@keyframes colorChange {
+    0% {
+        color: #c69c1e; /* Color original */
+    }
+    50% {
+        color: #e6c66c; /* Color más claro */
+    }
+    100% {
+        color: #c69c1e; /* Regresa al color original */
+    }
+}
+
+/* Estilo del título principal */
+.titulo {
+    text-align: center;
+    font: bold 80px/1 arial;
+    text-transform: uppercase;
+    color: #c69c1e; /* Color original */
+    text-shadow: 0 2px 0 #8b6e15, 0 4px 0 #7c6213, 0 6px 0 #6e5611,
+        0 8px 0 #5f4b0e, 0 10px 0 #503f0c, 0 12px 0 #41330a,
+        3px 8px 15px rgba(0, 0, 0, 0.1), 3px 8px 5px rgba(0, 0, 0, 0.3);
+    animation: colorChange 3s infinite; /* Aplica la animación */
+}
+
+/* Estilo para títulos secundarios */
+.titulo1, .titulo2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font: bold 40px/1 arial;
+    text-transform: uppercase;
+    color: #c69c1e; /* Color original */
+    text-shadow: 0 2px 0 #8b6e15, 0 4px 0 #7c6213, 0 6px 0 #6e5611,
+        0 8px 0 #5f4b0e, 0 10px 0 #503f0c, 0 12px 0 #41330a,
+        3px 8px 15px rgba(0, 0, 0, 0.1), 3px 8px 5px rgba(0, 0, 0, 0.3);
+    animation: colorChange 3s infinite; /* Aplica la animación */
+}
+
+
+p {
+    font-size: 1.5em;
+    color: #000000;
+    /* Color del texto (rojo) */
+    text-shadow:
+        1px 1px 3px rgb(255, 255, 255);
+    /* Sombra con un tono oscuro y desplazamiento */
+}
+
+.form {
+    font-size: 1.5em;
+    color: #ffffff;
+    /* Color del texto (rojo) */
+    text-shadow:
+        3px 3px 3px rgba(0, 0, 0, 0.5);
+    /* Sombra con un tono oscuro y desplazamiento */
+
+}
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .buttons {
+        flex-direction: column; /* Cambiar a columna */
+        align-items: center; /* Centrar los botones */
+        margin-top: 3px; /* Espaciado entre botones */
+    }
+
+    button {
+        width: 90%; /* Botones ocupan el ancho completo */
+        margin-bottom: 1px; /* Espaciado entre botones */
+    }
+
+    .calendar {
+        max-width: 90%; /* Ajustar el ancho del calendario */
+    }
+
+    /* Ajustes para el contenedor principal */
+    #mainContainer, #calendarContainer, #guardiasContainer, #historialContainer {
+        padding: 10px; /* Ajustar el padding */
+        width: 100%; /* Asegurar que ocupen todo el ancho */
+    }
+
+    /* Ajustes de texto */
+    h1 {
+        font-size: 2em; /* Tamaño de fuente más pequeño para h1 */
+    }
+
+    p, .form {
+        font-size: 1em; /* Tamaño de fuente más pequeño para párrafos y formularios */
+    }
+    #guardiasContainer {
+        padding: 5px; /* Reduce el padding en móviles */
+        max-height: 100vh; /* Ajusta la altura máxima en móviles */
+        overflow-y: auto; /* Mantiene el desplazamiento vertical */
+        font-size: small;
+    }
+
+    /* Asegura que el texto y los elementos sean legibles en pantallas pequeñas */
+    h1, h2, h3, p {
+        font-size: 1.0em; /* Reduce el tamaño de la fuente */
+    }
+    #historialTable {
+        max-height: 300px; /* Altura máxima del contenedor */
+        overflow-y: auto; /* Permite el desplazamiento vertical */
+        overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+        padding: 10px; /* Espaciado interno */
+        background-color: rgba(255, 255, 255, 0.9); /* Fondo con opacidad */
+        border-radius: 8px; /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    }
+    
+    /* Oculta la barra de desplazamiento */
+    #historialTable::-webkit-scrollbar {
+        width: 0; /* Oculta la barra de desplazamiento */
+        background: transparent; /* Fondo transparente */
+    }
+    
+    .historial-row, .historialItem {
+        background-color: #000; /* Color de fondo para los elementos */
+        color: white; /* Color de texto */
+        border: 1px solid #ccc; /* Bordes */
+        padding: 10px; /* Espaciado interno */
+        margin-bottom: 5px; /* Espaciado entre elementos */
+        border-radius: 4px; /* Bordes redondeados para los elementos */
+    }
+    
+    /* Estilos específicos para la clase 'hidden' */
+    .hidden {
+        display: none; /* Oculta elementos con esta clase */
+    }
+       
+    #mainContainer {
+        display: flex;
+        flex-direction: column; /* Organiza los elementos en columna */
+        align-items: center; /* Centra horizontalmente todos los elementos */
+        justify-content: center; /* Centra verticalmente */
+        position: relative; /* Necesario para el posicionamiento del popup */
+    }
+    
+    .clock-popup {
+        display: none; /* Inicialmente oculto */
+        position: absolute; /* Posicionamiento absoluto para el popup */
+        top: 50%; /* Centro vertical */
+        left: 50%; /* Centro horizontal */
+        transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
+        background-color: white; /* Fondo del popup */
+        padding: 20px; /* Espaciado interno */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra del popup */
+        z-index: 1000; /* Asegúrate de que esté en la parte superior */
+    }
+    
+    /* Clase para mostrar el popup */
+    .show {
+        display: block; /* Muestra el popup */
+    }
+    
+    
+    
+
+}
