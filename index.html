@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="styles.css">
+  <title>Guardia App</title>
+
+</head>
+
+<body>
+
+  <div class="window" id="mainContainer">
+    <h1 class="titulo">Guardia</h1>
+    <div class="buttons">
+      <!-- Icono de cambio de modo -->
+      <div id="modoIcon" class="modo-icon" onclick="toggleDarkMode()">
+        🌙
+      </div>
+
+      <button id="cuadranteButton" style="animation: fadeIn">
+        Cuadrante
+      </button></br>
+      <button id="guardiasButton">Guardias</button></br>
+      <button id="historialButton">Historial</button>
+    </div>
+    <div class="copyright">&copy; ZaBaDeV 2023</div>
+
+    <!-- Agregar un icono de reloj (Material Icons) -->
+    <i id="clockIcon" class="material-icons" style="font-size: 24px; margin-right: 10px; cursor: pointer;">schedule</i>
+
+    <div id="clockPopup" class="clock-popup">
+      <span class="close-button" onclick="closeClockPopup()">&times;</span>
+      <div class="clock-content">
+        <p>Guardias totales: 10</p>
+        <p>Horas de guardia acumuladas: 40</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="window" id="calendarContainer">
+    <div class="calendar-header">
+      <button id="prevMonth">&lt;</button>
+      <h3 id="currentMonth">Mes actual</h3>
+      <button id="nextMonth">&gt;</button>
+    </div>
+    <div class="calendar" id="calendar">
+      <!-- Agregar una fila para los nombres de los días de la semana -->
+      <div class="day-of-week">Dom</div>
+      <div class="day-of-week">Lun</div>
+      <div class="day-of-week">Mar</div>
+      <div class="day-of-week">Mié</div>
+      <div class="day-of-week">Jue</div>
+      <div class="day-of-week">Vie</div>
+      <div class="day-of-week">Sáb</div>
+      <!-- Fin de la fila para los nombres de los días de la semana -->
+    </div>
+
+    <button id="backToMain" style="animation: fadeIn">
+      Volver a la ventana principal
+    </button>
+  </div>
+
+  <div class="window" id="guardiasContainer" style="display: none">
+    <h1 class="titulo1">Guardias</h1>
+    <div class="form">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required /><br />
+
+      <label for="empleo">Empleo:</label>
+      <select id="empleo" required>
+        <option value="">Seleccione un empleo</option>
+        <option value="Cabo 1">Cabo 1</option>
+        <option value="Cabo">Cabo</option>
+        <option value="Soldado">Soldado</option>
+      </select><br />
+
+      <label for="fecha">Fecha de Guardia:</label>
+      <input type="date" id="fecha" required /><br />
+
+      <label for="imagen1">Adjuntar Imagen (Orden):</label>
+      <input type="file" accept="image/jpeg" id="imagen1" /><br />
+
+      <label for="imagen2">Adjuntar Imagen (Parte):</label>
+      <input type="file" accept="image/jpeg" id="imagen2" /><br />
+
+      <button id="guardarGuardia">Guardar</button>
+
+      <button id="volverPrincipal">Volver a la ventana principal</button>
+    </div>
+  </div>
+
+  <div class="window" id="historialContainer" style="display: none">
+    <h1 class="titulo2">Historial</h1>
+
+    <div id="historialTable">
+      <!-- Aquí se mostrará el contenido del historial -->
+      <!-- Cada elemento debe tener una clase que lo identifique -->
+      <div class="historial-row hidden">Item 1</div>
+      <div class="historialItem">Item 2</div>
+      <div class="historialItem">Item 3</div>
+      <div class="historialItem">Item 4</div>
+      <div class="historialItem">Item 5</div>
+      <!-- Agrega más elementos según sea necesario -->
+    </div>
+
+    <div id="pagination">
+      <button id="prevPage" disabled>Anterior</button>
+      <span id="pageInfo">Página 1 de 1</span>
+      <button id="nextPage" disabled>Siguiente</button>
+    </div>
+
+    <p>Total de Horas de Guardias: <span id="totalHorasGuardias">0</span> horas</p>
+    <p>Total de Guardias Registradas: <span id="totalGuardias">0</span></p>
+
+    <!-- Agrega los botones ocultos para crear/eliminar la base de datos -->
+    <button id="crearDB" style="display: none">Crear Base de Datos</button>
+    <button id="eliminarDB" style="display: none">Eliminar Base de Datos</button>
+
+    <button id="volverPrincipalDesdeHistorial">Volver a la ventana principal</button>
+
+    <!-- Agrega el icono de rueda dentada -->
+    <div class="settings-container" onclick="toggleSettings()">
+      ⚙️ <!-- Icono de la rueda dentada -->
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>
