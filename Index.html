@@ -2,15 +2,11 @@
 <html lang="es">
 
 <head>
-
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="styles.css">
-
-
   <title>Guardia App</title>
 
 </head>
@@ -19,33 +15,33 @@
 
   <div class="window" id="mainContainer">
     <h1 class="titulo">Guardia</h1>
-    <div class="buttons">  
-        <!-- Icono de cambio de modo -->
-        <div id="modoIcon" class="modo-icon" onclick="toggleDarkMode()">
-            🌙
-        </div>
+    <div class="buttons">
+      <!-- Icono de cambio de modo -->
+      <div id="modoIcon" class="modo-icon" onclick="toggleDarkMode()">
+        🌙
+      </div>
 
-        <button id="cuadranteButton" style="animation: fadeIn">
-            Cuadrante
-        </button></br>
-        <button id="guardiasButton">Guardias</button></br>
-        <button id="historialButton">Historial</button>
+      <button id="cuadranteButton" style="animation: fadeIn">
+        Cuadrante
+      </button></br>
+      <button id="guardiasButton">Guardias</button></br>
+      <button id="historialButton">Historial</button>
     </div>
     <div class="copyright">&copy; ZaBaDeV 2023</div>
-    
+
     <!-- Agregar un icono de reloj (Material Icons) -->
     <i id="clockIcon" class="material-icons" style="font-size: 24px; margin-right: 10px; cursor: pointer;">schedule</i>
-    
-    <div id="clockPopup" class="clock-popup">
-        <span class="close-button" onclick="closeClockPopup()">&times;</span>
-        <div class="clock-content">
-            <p>Guardias totales: 10</p>
-            <p>Horas de guardia acumuladas: 40</p>
-        </div>
-    </div>
-</div>
 
-    
+    <div id="clockPopup" class="clock-popup">
+      <span class="close-button" onclick="closeClockPopup()">&times;</span>
+      <div class="clock-content">
+        <p>Guardias totales: 10</p>
+        <p>Horas de guardia acumuladas: 40</p>
+      </div>
+    </div>
+  </div>
+
+
 
   <div class="window" id="calendarContainer">
     <div class="calendar-header">
@@ -83,7 +79,7 @@
         <option value="Cabo">Cabo</option>
         <option value="Soldado">Soldado</option>
       </select><br />
-      
+
       <label for="fecha">Fecha de Guardia:</label>
       <input type="date" id="fecha" required /><br />
 
@@ -110,7 +106,7 @@
       <div class="historialItem">Item 3</div>
       <div class="historialItem">Item 4</div>
       <div class="historialItem">Item 5</div>
-          <!-- Agrega más elementos según sea necesario -->
+      <!-- Agrega más elementos según sea necesario -->
     </div>
 
     <div id="pagination">
